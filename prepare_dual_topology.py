@@ -4694,7 +4694,7 @@ if __name__ == '__main__':
                     else os.path.basename(water_data['topology'])
                 structure_file = output_structure_file if each_system == 'protein' \
                     else os.path.basename(water_data['structure'])
-
+                index_file = arguments.index if each_system == 'protein' else os.path.basename(water_data['index'])
                 if arguments.solute_scaling == -1:
                     # No solute scaling
                     equilibration_output.append(
@@ -4705,7 +4705,7 @@ if __name__ == '__main__':
                             morph_dir=morph_dir,
                             topology_file=topology_file,
                             structure_file=structure_file,
-                            index_file=arguments.index,
+                            index_file=index_file,
                             plumed_conf=plumed_conf,
                             gmx_path=arguments.gmx_bin_run,
                             gmx_maxwarn=arguments.gmx_maxwarn,
@@ -4722,7 +4722,7 @@ if __name__ == '__main__':
                             morph_dir=morph_dir,
                             topology_file=topology_file,
                             structure_file=structure_file,
-                            index_file=arguments.index,
+                            index_file=index_file,
                             scaling_bin=scaling_bin,
                             solute_scaling_list=this_solute_scaling_list,
                             solute_scaling_atoms_dict=solute_scaling_atoms_dict,

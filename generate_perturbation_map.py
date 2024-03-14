@@ -167,8 +167,8 @@ def test_center_molecule(map_bias, all_molecules, verbosity=0):
         raise SystemExit(1)
 
     if isinstance(map_bias, list):
-        map_bias = map_bias[0]
-
+        map_bias = str(map_bias[0])
+    map_bias = str(map_bias)
     if map_bias not in all_molecules:
         os_util.local_print('The center molecule you supplied ({}) not found in {}.'
                             ''.format(map_bias, ', '.join(all_molecules)),
@@ -428,6 +428,7 @@ if __name__ == '__main__':
                                                                  new_default_name='Mol_{}'
                                                                                   ''.format(len(molecules_dict) + 1),
                                                                  verbosity=arguments.verbose)
+                    new_mol_name = str(new_mol_name)
                     molecules_dict[new_mol_name] = each_mol
             else:
                 each_mol = mol_util.generic_mol_read(ligand_data=each_file, ligand_format=file_ext,
